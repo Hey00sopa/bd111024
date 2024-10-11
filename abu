@@ -1,0 +1,14 @@
+  -- qual o nome do curso que mariana cursa?
+select nome from curso where codigo=
+(select cod_curso from aluno where nome like 'Mariana%');
+
+-- relacionar o nome de mariana e do curso q ela cursa
+
+select aluno.nome, curso.nome from curso, aluno
+where cod_curso=codigo and aluno.nome like 'Mariana%';
+
+select area.descricao, curso.nome from area, curso where cod_area = area.codigo;
+select area.descricao as 'AREA', curso.nome as 'CURSO', aluno.nome as'ALUNO' from area, curso, aluno where cod_area = area.codigo and aluno.cod_curso=curso.codigo; ;
+select area.predio, curso.nome_coordenador from area, curs
+where cod_area = area.codigo
+and curso.codigo = (select cod_curso from aluno where nome = ' Carolina Pereira');
